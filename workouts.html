@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Workouts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f1f7, #dfe9f3); /* Gradient background */
+            padding: 20px;
+            margin: 0; /* Remove default margin */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Align items in a column */
+            min-height: 100vh; /* Ensure body takes at least full viewport height */
+        }
+        /* Navigation bar styles */
+    .top-nav {
+        background-color: #f0f1f7;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        height: 50px;
+    }
+    
+    .top-nav .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    
+    .top-nav nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    .top-nav nav ul li {
+        margin: 0 20px;
+    }
+
+    .top-nav nav ul li a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.1em;
+    }
+    
+    .top-nav nav ul li.active a, 
+    .top-nav nav ul li:hover a {
+        color: #ff6b6b;
+    }
+
+    .top-nav nav ul li.active::after, 
+    .top-nav nav ul li:hover::after {
+        content: '';
+        display: block;
+        margin: 5px auto 0;
+        width: 50%;
+        border: 2px solid #ff6b6b;
+        border-radius: 4px;
+    }
+    
+    button {
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background-color: #ff5252;
+    }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ff6b6b;
+            font-size: 2.5em;
+        }
+
+        .workouts-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            flex: 1; /* Allow this container to grow and take available space */
+        }
+
+        .workout-box {
+            background-color: white;
+            width: 30%;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .workout-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .workout-box img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            border: 3px solid #ff6b6b;
+        }
+
+        .workout-box h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ff6b6b, #f0a3a3);
+            background-clip: text;
+            color: transparent;
+        }
+
+        .workout-box p {
+            color: #666;
+            font-size: 1em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f1f7;
+            color: #666;
+            margin-top: auto; /* Push footer to the bottom */
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="logo">
+        <h2>Flex Track💪</h2>
+    </div>
+    <nav>
+        <ul>
+            <li><button onclick="window.location.href='gym.html'">Home</button></li>
+            <li><button onclick="window.location.href='login.html'">about us</button></li>
+            <li><button onclick="window.location.href='signup.html'">contact us</button></li>
+        </ul>
+    </nav>
+</header>
+    <h1>Explore Workouts</h1>
+
+    <div class="workouts-container">
+        <div class="workout-box" onclick="window.location.href='chest_workout.html'">
+            <img src="C:\Users\PC\OneDrive\డెస్క్‌టాప్\infosys\b6280fbba2b4e7155a4a1901dfeebc9d.gif" alt="Chest Workout">
+            <h3>Chest Workout</h3>
+            <p>Build a stronger chest with push-ups, bench press, and more. Engage your pectoral muscles with this intense workout.</p>
+        </div>
+        <div class="workout-box" onclick="window.location.href='back_workout.html'">
+            <img src="C:\Users\PC\OneDrive\డెస్క్‌టాప్\infosys\fb9c219d3368b2dd0ec7afce38055478.gif" alt="Back Workout">
+            <h3>Back Workout</h3>
+            <p>Strengthen your back muscles with pull-ups, deadlifts, and rows for improved posture and stability.</p>
+        </div>
+        <div class="workout-box" onclick="window.location.href='shoulder_workout.html'">
+            <img src="C:\Users\PC\OneDrive\డెస్క్‌టాప్\infosys\38c37796fea05db4570bddb47e612e65.gif" alt="Shoulder Workout">
+            <h3>Shoulder Workout</h3>
+            <p>Build broad shoulders with targeted exercises such as shoulder presses and lateral raises.</p>
+        </div>
+        <div class="workout-box" onclick="window.location.href='arms_workout.html'">
+            <img src="C:\Users\PC\OneDrive\డెస్క్‌టాప్\infosys\883d061da85cd5b7bc90b59ec8e35194.gif" alt="Arms Workout">
+            <h3>Arms Workout</h3>
+            <p>Enhance your arm strength with curls, triceps dips, and other exercises to sculpt your biceps and triceps.</p>
+        </div>
+        <div class="workout-box" onclick="window.location.href='legs_workout.html'">
+            <img src="C:\Users\PC\OneDrive\డెస్క్‌టాప్\infosys\ce8b24341e1d1e48837f5dd5908669a0.gif" alt="Legs Workout">
+            <h3>Legs Workout</h3>
+            <p>Develop powerful legs with squats, lunges, and deadlifts for a complete lower body workout.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Flex Track. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

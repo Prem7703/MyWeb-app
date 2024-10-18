@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chest Workout</title>
+    <link rel="stylesheet" href="style.css">
+    <style>  
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff6b6b, #f7f8fc);
+            padding: 20px;
+            margin: 0;
+        }
+        /* Navigation bar styles */
+    .top-nav {
+        background-color: #f0f1f7;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        height: 50px;
+    }
+    
+    .top-nav .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    
+    .top-nav nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    .top-nav nav ul li {
+        margin: 0 20px;
+    }
+
+    .top-nav nav ul li a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.1em;
+    }
+    
+    .top-nav nav ul li.active a, 
+    .top-nav nav ul li:hover a {
+        color: #ff6b6b;
+    }
+
+    .top-nav nav ul li.active::after, 
+    .top-nav nav ul li:hover::after {
+        content: '';
+        display: block;
+        margin: 5px auto 0;
+        width: 50%;
+        border: 2px solid #ff6b6b;
+        border-radius: 4px;
+    }
+    button {
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background-color: #ff5252;
+    }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+            font-size: 3em;
+        }
+
+        .workout-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .exercise {
+            background-color: white;
+            width: 30%;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            transition: transform 0.2s;
+        }
+
+        .exercise:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .exercise img {
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+
+        .exercise h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .exercise p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .progress {
+            height: 10px;
+            background-color: #ff6b6b;
+            width: 0;
+            transition: width 0.4s ease;
+        }
+
+        .timer {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .pause-button {
+            display: none;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pause-button.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+      <!-- Top Navigation -->
+      <header class="top-nav">
+        <div class="logo">
+            <h2>Flex Track💪</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><button onclick="window.location.href='gym.html'">Home</button></li>
+                <li><button onclick="window.location.href='login.html'">about us </button></li>
+                <li><button onclick="window.location.href='signup.html'">contact us</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Chest Workout</h1>
+    <audio id="workout-music" src="your-audio-file.mp3"></audio>
+
+
+    <div class="workout-container">
+        <div class="exercise" onclick="startExercise(this)">
+            <img src="C:/Users/PC/OneDrive/డెస్క్‌టాప్/infosys/Bench-Press-Gif.gif" alt="Bench Press">
+            <h3>Bench Press</h3>
+            <p>The bench press is a fundamental chest exercise that targets the pectoral muscles, triceps, and shoulders. Perform 3 sets of 8-12 reps with a moderate weight.</p>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <div class="timer">40s</div>
+            <button class="pause-button" onclick="pauseExercise(event, this)">Pause</button>
+        </div>
+        <div class="exercise" onclick="startExercise(this)">
+            <img src="C:/Users/PC/OneDrive/డెస్క్‌టాప్/infosys/1incline-barbell-press.gif" alt="Incline Press">
+            <h3>Incline Press</h3>
+            <p>The incline press focuses on the upper portion of the chest, helping to build a well-rounded chest. Aim for 3 sets of 10 reps at a comfortable incline.</p>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <div class="timer">40s</div>
+            <button class="pause-button" onclick="pauseExercise(event, this)">Pause</button>
+        </div>
+        <div class="exercise" onclick="startExercise(this)">
+            <img src="C:/Users/PC/OneDrive/డెస్క్‌టాప్/infosys/pushup.gif" alt="Push-ups">
+            <h3>Push-ups</h3>
+            <p>Push-ups are a bodyweight exercise that works the entire chest, along with the triceps and core. Try for 4 sets of 15-20 reps to maximize endurance.</p>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <div class="timer">40s</div>
+            <button class="pause-button" onclick="pauseExercise(event, this)">Pause</button>
+        </div>
+        <div class="exercise" onclick="startExercise(this)">
+            <img src="C:\Users\PC\OneDrive\డెస్క్‌టాప్\infosys\inclinedumbbellbenchpress-1492108229.webp" alt="Incline Dumbbell Bench Press">
+            <h3>Incline Dumbbell Bench Press</h3>
+            <p>This variation is still hitting your upper chest muscles. But you’ll also feel your triceps and deltoids working during this movement.<br>Sets: 3 (do a failure set) Reps: 12</p>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <div class="timer">40s</div>
+            <button class="pause-button" onclick="pauseExercise(event, this)">Pause</button>
+        </div>
+        <div class="exercise" onclick="startExercise(this)">
+            <img src="C:\Users\PC\OneDrive\డెస్క్‌టాప్\infosys\dumbell-chest-fly.webp" alt="Dumbbell Chest Flys">
+            <h3>Dumbbell Chest Fly</h3>
+            <p>This upper chest workout requires a flat bench. We don’t want to overwork our upper chest muscles.<br>Sets: 3 (do a failure set) Reps: 10</p>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <div class="timer">40s</div>
+            <button class="pause-button" onclick="pauseExercise(event, this)">Pause</button>
+        </div>
+        <div class="exercise" onclick="startExercise(this)">
+            <img src="C:\Users\PC\OneDrive\డెస్క్‌టాప్\infosys\straightarmpullover.webp" alt="Dumbbell Pullover">
+            <h3>Dumbbell Pullover</h3>
+            <p>This is a classical all-round chest exercise. The dumbbell pullover works your pectorals, triceps, serratus, and latissimus dorsi.<br>Sets: 3 Reps: 12</p>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <div class="timer">40s</div>
+            <button class="pause-button" onclick="pauseExercise(event, this)">Pause</button>
+        </div>
+    </div>
+
+    <script>
+        let currentExercise = 0; // Index of the current exercise
+        let exerciseCount = 0; // Count of completed exercises
+        let timer; // Timer variable for the countdown
+        let isPaused = false; // State of the timer
+        const workoutMusic = document.getElementById('workout-music'); // Accessing the audio element
+
+        // Function to start exercise
+        function startExercise(exerciseElement) {
+            const progressBar = exerciseElement.querySelector('.progress');
+            const timerElement = exerciseElement.querySelector('.timer');
+            const pauseButton = exerciseElement.querySelector('.pause-button');
+
+            if (currentExercise > 0) {
+                clearTimeout(timer); // Clear previous timer if running
+                exerciseCount++;
+            }
+            exerciseCount++;
+
+            // Reset progress bar and timer
+            progressBar.style.width = '0%';
+            let timeLeft = 40; // Exercise duration
+            timerElement.textContent = `${timeLeft}s`;
+            pauseButton.classList.add('active');
+
+            workoutMusic.play(); // Start the music when exercise starts
+
+            timer = setInterval(() => {
+                if (isPaused) return; // Pause the countdown if paused
+
+                timeLeft--;
+                const percentage = ((40 - timeLeft) / 40) * 100;
+                progressBar.style.width = `${percentage}%`;
+                timerElement.textContent = `${timeLeft}s`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    timerElement.textContent = 'Done!';
+                    pauseButton.classList.remove('active');
+                    workoutMusic.pause(); // Pause music when exercise completes
+
+                    // Check for alert to drink water after every two exercises
+                    if (exerciseCount % 2 === 0) {
+                        setTimeout(() => {
+                            alert('Drink some water!');
+                        }, 1000);
+                    }
+
+                    // Move to next exercise after 10 seconds
+                    setTimeout(() => {
+                        currentExercise = (currentExercise + 1) % document.querySelectorAll('.exercise').length; // Loop back to first exercise
+                        if (currentExercise < document.querySelectorAll('.exercise').length) {
+                            startExercise(document.querySelectorAll('.exercise')[currentExercise]);
+                        }
+                    }, 10000); // Wait for 10 seconds before moving to the next exercise
+                }
+            }, 1000);
+        }
+
+        // Function to pause exercise
+        function pauseExercise(event, exerciseElement) {
+            event.stopPropagation(); // Prevent the click event on the exercise from firing
+            isPaused = !isPaused; // Toggle pause state
+            const pauseButton = exerciseElement.querySelector('.pause-button');
+            pauseButton.textContent = isPaused ? 'Resume' : 'Pause';
+
+            if (isPaused) {
+                workoutMusic.pause(); // Pause music when paused
+            } else {
+                workoutMusic.play(); // Resume music when exercise resumes
+            }
+        }
+    </script>
+
+
+</body>
+</html>

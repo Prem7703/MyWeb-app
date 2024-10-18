@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f8fc;
+    }
+
+    /* Navigation bar styles */
+    .top-nav {
+        background-color: #f0f1f7;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .top-nav .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    
+    .top-nav nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    .top-nav nav ul li {
+        margin: 0 20px;
+    }
+
+    .top-nav nav ul li a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.1em;
+    }
+    
+    .top-nav nav ul li.active a, 
+    .top-nav nav ul li:hover a {
+        color: #ff6b6b;
+    }
+
+    .top-nav nav ul li.active::after, 
+    .top-nav nav ul li:hover::after {
+        content: '';
+        display: block;
+        margin: 5px auto 0;
+        width: 50%;
+        border: 2px solid #ff6b6b;
+        border-radius: 4px;
+    }
+    
+    /* Main content layout */
+    .container {
+        display: flex;
+        margin-top: 20px;
+    }
+
+    .main-content {
+        flex-grow: 1;
+        padding: 20px;
+    }
+
+    .main-content header {
+        margin-bottom: 20px;
+    }
+
+    .cards {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 22%;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+
+    .graphs {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
+    .graphs .weekly-summary, 
+    .graphs .food-summary {
+        background-color: white;
+        padding: 20px;
+        width: 48%;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+
+    .schedule {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .schedule > div {
+        background-color: white;
+        padding: 20px;
+        width: 30%;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+
+    .right-panel {
+        width: 300px;
+        background-color: #f0f1f7;
+        padding: 20px;
+    }
+
+    .webinar, .subscription {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+
+    button {
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background-color: #ff5252;
+    }
+    /* Welcome Section Styles */
+.welcome-section {
+    background: linear-gradient(to right, #000000, #0000ff); /* Black to Blue Gradient */
+    padding: 40px 0;
+    text-align: center;
+    color: white; /* Make text white for better contrast */
+}
+
+.welcome-container {
+    width: 80%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.welcome-section h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff; /* White header text */
+}
+
+.welcome-section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #dddddd; /* Light grey text for better readability */
+}
+
+.welcome-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.welcome-buttons button {
+    background-color: #ff6b6b; /* Match the button color */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.welcome-buttons button:hover {
+    background-color: #ff5252;
+}
+.diet-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    text-align: center;
+}
+
+.diet-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.diet-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diet-form input, .diet-form select {
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.diet-form button {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.diet-form button:hover {
+    background-color: #ff5252;
+}
+
+.diet-result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+/* Footer Section Styles */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f1f7;
+    padding: 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+    color: #444;
+    margin-top: 50px;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+}
+
+.footer-left .profile-image {
+    width: 60px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.footer-center {
+    font-size: 1em;
+    color: #666;
+    text-align: center;
+}
+
+.footer-right a {
+    color: #666;
+    margin-left: 10px;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.footer-right a:hover {
+    color: #ff6b6b;
+}
+
+/* Social Media Icon Styles (Font Awesome) */
+.footer-right i {
+    font-size: 1.5em;
+}
+
+/* Adjust responsive layout for footer */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-right {
+        margin-bottom: 10px;
+    }
+}
+button {
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background-color: #ff5252;
+    }
+    /* Typewriter Animation Styles */
+.typewriter {
+    overflow: hidden; /* Ensures the text is hidden until it's typed */
+    border-right: 0.15em solid #ff6b6b; /* Creates a cursor effect */
+    white-space: nowrap; /* Prevents wrapping */
+    margin: 0 auto; /* Centers the text */
+    letter-spacing: 0.15em; /* Spacing between letters */
+    animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite; /* Adjust timing and steps as needed */
+}
+
+/* Typing Effect */
+@keyframes typing {
+    from {
+        width: 0; /* Starts with no width */
+    }
+    to {
+        width: 50%; /* Expands to full width */
+    }
+}
+
+/* Blinking Cursor Effect */
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent; /* Cursor is invisible */
+    }
+    50% {
+        border-color: #ff6b6b; /* Cursor is visible */
+    }
+}
+
+/* Music button styling */
+.music-btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px; /* Space between logo and button */
+    font-size: 1em;
+}
+
+.music-btn:hover {
+    background-color: #ff5252;
+}
+
+</style>
+
+<body>
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <div class="logo">
+            <h2>Flex Track💪</h2>
+        </div>
+        <button class="music-btn" onclick="window.open('https://open.spotify.com/', '_blank')">🎵 Music</button> <!-- Music Button -->
+        <nav>
+            <ul>
+                <li><button onclick="window.location.href='gym.html'">Home</button></li>
+                <li><button onclick="window.location.href='login.html'">Login</button></li>
+                <li><button onclick="window.location.href='signup.html'">Sign Up</button></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="welcome-section">
+        <div class="welcome-container">
+            <h1>Welcome to Flex Track</h1>
+            <p>
+                Confused about where to start your fitness journey? We've got you covered. 
+                Explore different workout routines, personalized plans, and get started today! 
+                It's all free. At Flex Track, we aim to help you meet your fitness goals in a 
+                short time with techniques that took us years to perfect.
+            </p>
+            <div class="typewriter">
+                <h2>Let's get fit together!</h2>
+            </div>
+            <div class="welcome-buttons">
+                <button class="explore-courses" onclick="window.location.href='workouts.html'">Explore Workouts</button>
+            </div>
+        </div>
+    </section>
+    
+    
+        <!-- Main Dashboard Content -->
+        <div class="container">
+            <main class="main-content">
+                
+    
+                <!-- Summary Cards -->
+                <section class="cards">
+                    <div class="card" onclick="window.location.href='warmup.html'">
+                        <h3>Warm Up</h3>
+                        <p>15 Minutes</p>
+                       </div>
+                    <div class="card" onclick="window.location">
+                        <h3>Weight Training</h3>
+                        <p>3 Sets 10 Reps</p>
+                    </div>
+                    <div class="card" onclick="window.location">
+                        <h3>Dumbbell Workout</h3>
+                        <p>4 Sets 10 Reps</p>
+                    </div>
+                    <div class="card" onclick="window.location">
+                        <h3>2500 cal</h3>
+                        <p>6 Meals a Day</p>
+                    </div>
+                    
+                </section>
+    
+                <!-- Weekly Summary and Food -->
+                <section class="graphs">
+                    <div class="weekly-summary" onclick="window.location">
+                        <h3>Weekly Summary</h3>
+                        <canvas id="weeklyChart" width="400" height="200"></canvas>
+                    </div>
+                    <div class="food-summary" onclick="window.location">
+                        <h3>Food</h3>
+                        <canvas id="foodChart"></canvas>
+                    </div>
+                </section>
+    
+                
+    
+           
+
+<!-- New Diet Form Section -->
+<section class="diet-section">
+    <h2>Get Your Personalized Diet Plan</h2>
+    <form class="diet-form">
+        <input type="text" id="weight" placeholder="Enter your weight (kg)" required>
+        <input type="text" id="height" placeholder="Enter your height (cm)" required>
+        <select id="bodyType" required>
+            <option value="" disabled selected>Select your body type</option>
+            <option value="slim">Slim</option>
+            <option value="medium">Medium</option>
+            <option value="fat">Fat</option>
+        </select>
+        <button type="button" onclick="generateDietPlan()">Get Diet Plan</button>
+    </form>
+
+    <div id="dietResult" class="diet-result"></div>
+</section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        
+        <div class="footer-center">
+            <span>&copy; 2024 Flex Track. All rights reserved.</span>
+        </div>
+        <div class="footer-right">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </footer>
+
+<script>
+    function generateDietPlan() {
+        const weight = document.getElementById('weight').value;
+        const height = document.getElementById('height').value;
+        const bodyType = document.getElementById('bodyType').value;
+
+        let dietPlan = '';
+
+        if (bodyType === 'slim') {
+            dietPlan = 'Eat more calories with a focus on protein and healthy fats. Include complex carbs like brown rice and sweet potatoes.';
+        } else if (bodyType === 'medium') {
+            dietPlan = 'Maintain a balanced diet with proteins, carbs, and fats in moderate portions. Incorporate fruits, vegetables, and lean meats.';
+        } else if (bodyType === 'fat') {
+            dietPlan = 'Focus on a calorie deficit diet with lean protein, high-fiber vegetables, and healthy fats. Avoid processed foods and sugars.';
+        }
+
+        document.getElementById('dietResult').innerHTML = `Based on your body type, here’s your recommended diet plan: <br><strong>${dietPlan}</strong>`;
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

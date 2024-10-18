@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warm-Up Exercises</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f7f8fc;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        /* Navigation bar styles */
+    .top-nav {
+        background-color: #f0f1f7;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        height: 70px;
+    }
+    
+    .top-nav .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    
+    .top-nav nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    .top-nav nav ul li {
+        margin: 0 20px;
+    }
+
+    .top-nav nav ul li a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.1em;
+    }
+    
+    .top-nav nav ul li.active a, 
+    .top-nav nav ul li:hover a {
+        color: #ff6b6b;
+    }
+
+    .top-nav nav ul li.active::after, 
+    .top-nav nav ul li:hover::after {
+        content: '';
+        display: block;
+        margin: 5px auto 0;
+        width: 50%;
+        border: 2px solid #ff6b6b;
+        border-radius: 4px;
+    }
+    button {
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background-color: #ff5252;
+    }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            max-width: 1200px;
+            flex: 1; /* Ensures the container takes up all available space */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+        .warmup-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .exercise {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            text-align: center;
+        }
+        .exercise img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+        .exercise h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .exercise p {
+            font-size: 1em;
+            color: #666;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f1f7;
+            color: #666;
+            margin-top: auto; /* Ensures the footer stays at the bottom */
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="logo">
+        <h2>Flex Track💪</h2>
+    </div>
+    <nav>
+        <ul>
+            <li><button onclick="window.location.href='gym.html'">Home</button></li>
+            <li><button onclick="window.location.href='login.html'">about us</button></li>
+            <li><button onclick="window.location.href='signup.html'">contact us</button></li>
+        </ul>
+    </nav>
+</header>
+    <div class="container">
+        <h1>Warm-Up Exercises</h1>
+        <div class="warmup-list">
+            <div class="exercise">
+                <img src="C:/Users/PC/OneDrive/డెస్క్‌టాప్/infosys/jumping-jack.gif" alt="Jumping Jacks">
+                <h2>Jumping Jacks</h2>
+                <p>Perform jumping jacks for 30 seconds to increase heart rate and warm up your entire body.</p>
+            </div>
+
+            <div class="exercise">
+                <img src="C:/Users/PC/OneDrive/డెస్క్‌టాప్/infosys/arm-circle.gif" alt="Arm Circles">
+                <h2>Arm Circles</h2>
+                <p>Do 20 arm circles forward and backward to loosen up your shoulders and arms.</p>
+            </div>
+
+            <div class="exercise">
+                <img src="C:/Users/PC/OneDrive/డెస్క్‌టాప్/infosys/leg-swings-forward-back-1.gif" alt="Leg Swings">
+                <h2>Leg Swings</h2>
+                <p>Swing each leg forward and backward for 10 repetitions to loosen up your hip joints.</p>
+            </div>
+
+            <div class="exercise">
+                <img src="C:/Users/PC/OneDrive/డెస్క్‌టాప్/infosys/Neck-Rolls.gif" alt="Neck Rolls">
+                <h2>Neck Rolls</h2>
+                <p>Gently roll your neck in a circular motion for 15 seconds to relieve tension.</p>
+            </div>
+
+            <div class="exercise">
+                <img src="C:/Users/PC/OneDrive/డెస్క్‌టాప్/infosys/c8f3f78b83404911b9da58150bcb0d32.gif" alt="Lunges">
+                <h2>Lunges</h2>
+                <p>Perform 10 lunges on each leg to activate your lower body muscles and improve flexibility.</p>
+            </div>
+
+            <div class="exercise">
+                <img src="C:/Users/PC/OneDrive/డెస్క్‌టాప్/infosys/stick_woman_toe_touch_md_nwm_v2.gif" alt="Toe Touches">
+                <h2>Toe Touches</h2>
+                <p>Bend forward and reach for your toes, holding for 10 seconds to stretch your hamstrings and lower back.</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <footer>
+        <p>&copy; 2024 Flex Track. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
